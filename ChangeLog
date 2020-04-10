@@ -1,0 +1,4 @@
+2020-04-10 Franz Holzinger  <franz@ttproducts.de>
+    * bugfix for TYPO3 9.5: Issue 90973 on forge.typo3.org.
+    * Initial release
+
