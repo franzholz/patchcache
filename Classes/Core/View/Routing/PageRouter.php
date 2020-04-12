@@ -31,7 +31,14 @@ use TYPO3\CMS\Core\Routing\Enhancer\EnhancerInterface;
 use TYPO3\CMS\Core\Routing\Enhancer\InflatableEnhancerInterface;
 use TYPO3\CMS\Core\Routing\Enhancer\ResultingInterface;
 use TYPO3\CMS\Core\Routing\Enhancer\RoutingEnhancerInterface;
+use TYPO3\CMS\Core\Routing\InvalidRouteArgumentsException;
+use TYPO3\CMS\Core\Routing\Route;
+use TYPO3\CMS\Core\Routing\RouteCollection;
 use TYPO3\CMS\Core\Routing\SiteMatcher;
+use TYPO3\CMS\Core\Routing\UrlGenerator;
+
+
+
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -189,6 +196,7 @@ class PageRouter extends \TYPO3\CMS\Core\Routing\PageRouter
                 // ABSOLUTE_URL is used as default fallback
                 $urlAsString = $generator->generate($routeName, $parameters, $referenceType);
                 $uri = new Uri($urlAsString);
+                 
                 /** @var Route $matchedRoute */
                 $matchedRoute = $collection->get($routeName);
                 // fetch potential applied defaults for later cHash generation

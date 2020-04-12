@@ -23,6 +23,8 @@ use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+use \TYPO3\CMS\Frontend\Typolink\UnableToLinkException;
+
 /**
  * Builds a TypoLink to a certain page
  */
