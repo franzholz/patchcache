@@ -1,3 +1,6 @@
+2020-04-16 Franz Holzinger  <franz@ttproducts.de>
+    * This extension patch is not yet validated. Set it to experimental.
+
 2020-04-12 Franz Holzinger  <franz@ttproducts.de>
     * bugfix: add necessary use clauses
 

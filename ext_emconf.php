@@ -10,12 +10,12 @@ $EM_CONF[$_EXTKEY] = array(
     'category' => 'be',
     'author' => 'Franz Holzinger',
     'author_email' => 'franz@ttproducts.de',
-    'state' => 'stable',
+    'state' => 'experimental',
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
     'author_company' => '',
-    'version' => '0.1.1',
+    'version' => '0.1.2',
     'constraints' => array(
         'depends' => array(
             'php' => '7.0.0-7.99.99',
@@ -28,3 +28,4 @@ $EM_CONF[$_EXTKEY] = array(
     ),
 );
 
+sx
