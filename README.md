@@ -13,7 +13,7 @@ Add the exceptions for the cHash calculation in the Install Tool, if the eID par
 
     Core: Exception handler (WEB): Uncaught TYPO3 Exception: #1518472189: Request parameters could not be validated (&cHash comparison failed)
 
-  $GLOBALS['TYPO3']['FE']['cacheHash']['excludedParameters'] = ...,eID
+  $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters'] = ...,eID
 
 Please send me a notification if there is any other solution.
 
