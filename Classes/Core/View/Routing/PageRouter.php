@@ -77,7 +77,7 @@ class PageRouter extends \TYPO3\CMS\Core\Routing\PageRouter
     /**
      * API for generating a page where the $route parameter is typically an array (page record) or the page ID
      *
-     * @param array|string $route
+     * @param array|string|int $route
      * @param array $parameters an array of query parameters which can be built into the URI path, also consider the special handling of "_language"
      * @param string $fragment additional #my-fragment part
      * @param string $type see the RouterInterface for possible types
@@ -113,7 +113,7 @@ class PageRouter extends \TYPO3\CMS\Core\Routing\PageRouter
         $page = $pageRepository->getPage($pageId, true);
         $pagePath = $page['slug'] ?? '';
 
-        if ($parameters['MP'] ?? false) {
+        if ($parameters['MP'] ?? '') {
             $mountPointPairs = explode(',', $parameters['MP']);
             $pagePath = $this->resolveMountPointParameterIntoPageSlug(
                 $pageId,
@@ -126,7 +126,7 @@ class PageRouter extends \TYPO3\CMS\Core\Routing\PageRouter
             // with the base of the MountPoint page, this is especially relevant for cross-domain linking
             // Because the language contains the full base, it is retrieved in this case.
             try {
-                [, $mountPointPage] = explode('-', reset($mountPointPairs));
+                [, $mountPointPage] = explode('-', (string)reset($mountPointPairs));
                 $site = GeneralUtility::makeInstance(SiteMatcher::class)
                     ->matchByPageId((int)$mountPointPage);
                 $language = $site->getLanguageById($language->getLanguageId());
