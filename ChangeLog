@@ -1,4 +1,7 @@
 2022-08-16 Franz Holzinger  <franz@ttproducts.de>
+    * support for TYPO3 10 and 11
+
+2022-08-16 Franz Holzinger  <franz@ttproducts.de>
     * This extension patch has been tested. Set it to beta.
 
 2020-04-16 Franz Holzinger  <franz@ttproducts.de>

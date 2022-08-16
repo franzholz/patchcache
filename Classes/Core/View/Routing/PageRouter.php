@@ -34,6 +34,7 @@ use TYPO3\CMS\Core\Routing\Enhancer\RoutingEnhancerInterface;
 use TYPO3\CMS\Core\Routing\InvalidRouteArgumentsException;
 use TYPO3\CMS\Core\Routing\Route;
 use TYPO3\CMS\Core\Routing\RouteCollection;
+use TYPO3\CMS\Core\Routing\RouteSorter;
 use TYPO3\CMS\Core\Routing\SiteMatcher;
 use TYPO3\CMS\Core\Routing\UrlGenerator;
 
@@ -175,8 +176,13 @@ class PageRouter extends \TYPO3\CMS\Core\Routing\PageRouter
         );
         $generator = new UrlGenerator($collection, $context);
         $generator->injectMappableProcessor($mappableProcessor);
-        $allRoutes = $collection->all();
-        $allRoutes = array_reverse($allRoutes, true);
+        // set default route flag after all routes have been processed
+        $defaultRouteForPage->setOption('_isDefault', true);
+        $allRoutes = GeneralUtility::makeInstance(RouteSorter::class)
+            ->withRoutes($collection->all())
+            ->withOriginalParameters($originalParameters)
+            ->sortRoutesForGeneration()
+            ->getRoutes();
         $matchedRoute = null;
         $pageRouteResult = null;
         $uri = null;
